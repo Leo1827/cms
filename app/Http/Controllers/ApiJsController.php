@@ -14,6 +14,7 @@ class ApiJsController extends Controller
 
     function getProductsSection($section, Request $request){
         $items_x_page = Config::get('cms.products_per_page');
+        $items_x_page_random = Config::get('cms.products_per_page_random');
         switch ($section):
             case 'home':
                 $products = Product::where('status', 1)->inRandomOrder()->paginate($items_x_page);
@@ -41,6 +42,19 @@ class ApiJsController extends Controller
         endif;
 
         return response()->json($data);
+    }
+    
+    public function postUserFavorites(Request $request){
+        $objects = json_decode($request->input('objects'), true);
+        $query = Favorite::where('user_id', Auth::id())->where('module', $request->input('module'))->whereIn('object_id', explode(",", $request->input('objects')))->pluck('object_id');
+        
+        if(count(collect($query)) > 0):
+            $data = ['status' => 'success', 'count' => count(collect($query)), 'objects' => $query];  
+        else:
+            $data = ['status' => 'success', 'count' => count(collect($query))];  
+        endif;
+        return response()->json($data);
+        //return response()->json($request->input('objects'));
     }
 }
 

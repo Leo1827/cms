@@ -36,5 +36,7 @@ Route::post('/account/edit/info', 'UserController@postAccountInfo')->name('accou
 //ajax Api Routers
 
 Route::get('/md/api/load/products/{section}', 'ApiJsController@getProductsSection');
+Route::post('/md/api/load/user/favorites', 'ApiJsController@postUserFavorites');
 Route::post('/md/api/favorites/add/{object}/{module}', 'ApiJsController@postFavoriteAdd');
+
 

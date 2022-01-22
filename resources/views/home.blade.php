@@ -47,11 +47,11 @@
 <section>
     {{--Sección de productos--}}
     <div class="products_list" id="products_list"></div>
-
+    <!--
     <div class="load_more_products">
         <a href="#" id="load_more_products">Cargar mas productos</a>
     </div>
-    {{--fin Sección de productos--}}
+    {{--fin Sección de productos--}} -->
 </section>
 
 @endsection
