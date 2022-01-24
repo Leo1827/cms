@@ -1,6 +1,6 @@
 <?php 
 return [
-'name' => 'mileershop',
+'name' => 'mileershop tienda',
 'currency' => '$',
 'company_phone' => '121223232',
 'map' => 'Ubicacion',

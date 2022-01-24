@@ -1,10 +1,10 @@
 @extends('admin.master')
 
-@section('title','Categorias')
+@section('title','Categorías')
 
 @section('breadcrumb')
 <li class="breadcrumb-item ">
-	<a href="{{ url('/admin/categories/0') }}"  style="text-decoration: none;"><i class="fas fa-folder-open"></i> Categorias</a>
+	<a href="{{ url('/admin/categories/0') }}"  style="text-decoration: none;"><i class="fas fa-folder-open"></i> Categorías</a>
 </li>
 @endsection
 
@@ -15,13 +15,13 @@
             <div class="container-fluid">
 	      <div class="panel shadow">
 		     <div class="header">
-			 <h2 class="title"><i class="fas fa-plus"></i> Agregar categoria</h2>
+			 <h2 class="title"><i class="fas fa-plus"></i> Agregar categoría</h2>
 		     </div>
 
 		     <div class="inside">
 		     	@if(kvfj(Auth::user()->permissions, 'category_add'))
-		     	{!! Form::open(['url' =>'/admin/category/add', 'files' => 'true']) !!}
-		     	<label for="name">Nombre categoria:</label>
+		     	{!! Form::open(['url' =>'/admin/category/add/'.$module, 'files' => 'true']) !!}
+		     	<label for="name">Nombre categoría:</label>
 					<div class="input-group">
 						<span class="input-group-text" id="basic-addon1">
 							<i class="far fa-keyboard" style="width: 16px; height: 24px;"></i>
@@ -29,12 +29,25 @@
 					{!! Form::text('name', null, ['class' => 'form-control']) !!}
 					</div>
 
+					<label for="module" class="mtop16">Categoría Padre:</label>
+					<div class="input-group">
+						<span class="input-group-text" id="basic-addon1">
+							<i class="far fa-keyboard" style="width: 16px; height: 24px;"></i>
+						</span>
+					<select name="parent" id="" class="form-select">
+						<option value="0">Sin categoría padre</option>
+						@foreach($cats as $cat)
+						<option value="{{ $cat->id }}">{{ $cat->name }}</option>
+						@endforeach
+					</select>
+					</div>
+
 					<label for="module" class="mtop16">Módulo:</label>
 					<div class="input-group">
 						<span class="input-group-text" id="basic-addon1">
 							<i class="far fa-keyboard" style="width: 16px; height: 24px;"></i>
 						</span>
-					{!! Form::select('module', getModulesArray(), 0, ['class' => 'form-select']) !!}
+					{!! Form::select('module', getModulesArray(), $module, ['class' => 'form-select', 'disabled']) !!}
 					</div>
 
 					<label for="icon" class="mtop16">Ícono:</label>
@@ -57,7 +70,7 @@
             <div class="container-fluid">
 	            <div class="panel shadow">
 		             <div class="header">
-			         <h2 class="title"><i class="fas fa-folder-open"></i> Categorias</h2>
+			         <h2 class="title"><i class="fas fa-folder-open"></i> Categorías</h2>
 		             </div>
 
 		             <div class="inside">
@@ -71,7 +84,7 @@
 		             			<tr>
 		             				<td width="94"></td>
 		             				<td>Nombre</td>
-		             				<td width="100"></td>
+		             				<td width="160"></td>
 		             			</tr>
 		             		</thead>
 		             		<tbody>
@@ -88,6 +101,10 @@
 		             				@if(kvfj(Auth::user()->permissions, 'category_edit'))
 										<a href="{{ url('/admin/category/'.$cat->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Editar">
 											<i class="fas fa-edit"></i>
+										</a>
+
+										<a href="{{ url('/admin/category/'.$cat->id.'/subs') }}" data-toggle="tooltip" data-placement="top" title="Subcategorías">
+											<i class="fas fa-list-ul"></i>
 										</a>
 									@endif
 									@if(kvfj(Auth::user()->permissions, 'category_delete'))

@@ -89,7 +89,7 @@ class ProductController extends Controller
                 if($request->hasFile('img')):
                     $fl = $request->img->storeAs($path, $filename, 'uploads');
                     $img = Image::make($file_file);
-                    $img->fit(256, 256, function($constraint){
+                    $img->fit(512, 512, function($constraint){
                         $constraint->upsize();
                     });
                     $img->save($upload_path.'/'.$path.'/t_'.$filename);
@@ -153,7 +153,7 @@ class ProductController extends Controller
                 if($request->hasFile('img')):
                     $fl = $request->img->storeAs($path, $filename, 'uploads');
                     $img = Image::make($file_file);
-                    $img->fit(256, 256, function($constraint){
+                    $img->fit(512, 512, function($constraint){
                         $constraint->upsize();
                     });
                     $img->save($upload_path.'/'.$path.'/t_'.$filename);
@@ -197,7 +197,7 @@ class ProductController extends Controller
                 if($request->hasFile('file_image')):
                     $fl = $request->file_image->storeAs($path, $filename, 'uploads');
                     $file_image = Image::make($file_file);
-                    $file_image->fit(256, 256, function($constraint){
+                    $file_image->fit(512, 512, function($constraint){
                         $constraint->upsize();
                     });
                     $file_image->save($upload_path.'/'.$path.'/t_'.$filename);

@@ -19,6 +19,9 @@ a
 
 .mtop32
 	margin-top 32px
+
+.pleft0
+	padding-left 0px !important
 	
 .form-control
 	&:hover
@@ -228,6 +231,7 @@ nav
 			padding 0px
 			position absolute
 			width 100%
+			z-index 99
 			li 
 				a 
 					background-color #f8f8f8 
@@ -237,7 +241,7 @@ nav
 						position relative
 						margin-top -4px
 						margin-right 8px
-						width 20px
+						width 40px
 					&:hover 
 						color #fff !important
 // Fin de menu desplegable categorias// 
@@ -472,5 +476,31 @@ nav
 	background-color #ea4c89 !important
 	color #fff !important
 		
+.product_single
+	background-color #fff
+	border-radius 4px
+	margin-top 32px
+	padding 12px
 
-					
+.slick-next
+	right 8px
+.slick-prev
+	left 8px
+
+.slick-arrow
+	align-items center
+	background-color rgba(0, 0, 0, .6)
+	display flex
+	border-radius 50%
+	justify-content center
+	height 36px
+	width 36px
+	z-index 90
+	&:before
+		position relative
+		left 0px
+		top 1px
+	&:hover
+		background-color rgba(0, 0, 0, .75)
+	&:focus
+		background-color rgba(0, 0, 0, .75)

@@ -13,8 +13,11 @@
 	<!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	<!-- Add the slick-theme.css if you want default styling -->
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 	<link rel="stylesheet" href="{{ url('/static/css/style.css?v='.time()) }}">
-	<link rel="stylesheet" href="../static/css/navbar.css">
+	<link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b0d8aefb17.js" crossorigin="anonymous"></script>
@@ -26,6 +29,7 @@
     <!--<script src="{{ url('/static/libs/ckeditor/ckeditor.js')}}"></script>-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script src="{{ url('/static/js/mdslider.js?v='.time()) }}"></script>
     <script src="{{ url('/static/js/site.js?v='.time()) }}"></script>
 	<!-- Sweet alert 2 -->

@@ -8,6 +8,10 @@ var page = 1;
 var page_section = "";
 var products_list_ids_temp = [];
 
+$(document).ready(function(){
+	$('.slick-slider').slick({dots: true, autoplay: true, autoplaySpeed: 2000});
+});
+
 document.addEventListener('DOMContentLoaded', function(){ 
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
